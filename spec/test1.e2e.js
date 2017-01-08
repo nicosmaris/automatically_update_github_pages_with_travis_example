@@ -9,7 +9,7 @@ describe("homepage", function() {
         var hello_link = $('[href*=hello]');  
         var about_link = $('[href*=about]');  
         hello_link.click();
-        var h3 = $("h3[@class='ng-scope']");
+        var h3 = $scope.h3;
         var text = h3.getText()
         expect(text).toEqual("hello world!");
     });
