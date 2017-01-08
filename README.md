@@ -3,16 +3,24 @@
 
 # Minimal angular 1 repository
 
-This is a repository to start frontend development with angular 1. Travis runs end-to-end tests with jasmine and github serves the page [here](https://nicosmaris.github.io/js)
+This is a repository to start frontend development with angular 1.
 
-Nodejs is used only to run protractor as the only backend is lite-server npm package used to serve static files (HTML, CSS, JS).
+
+# Description of branches
+
+Responsibility     | Branch    | Comments
+---                | ---       | ---
+live               | gh-pages  | github serves this single page app [here](https://nicosmaris.github.io/js)
+test               | master    | travis uses nodejs to serve static files and test angular with jasmine (you can click on the buttons on the top for details)
+
 
 # Description of files
 
 Responsibility     | Paths to files/folders    | Comments
 ---                | ---                       | ---
 provisioner        | .travis.yml package.json  | travis starts headless selenium standalone with xvfb and webdriver-manager
-static server      | bs-config.json index.html | lite-server
+static server      | bs-config.json            | lite-server
+app                | index.html app/           | single page app without backend deployment
 test runner        | protractor.config.js      | starts firefox and collects coverage with istanbul
 tests              | test/                     | end to end tests with jasmine2
 update github page | deploy.sh                 | travis uses github token to push to gh-pages branch
@@ -23,5 +31,5 @@ update github page | deploy.sh                 | travis uses github token to pus
 Generate a token T at github, install travis ruby gem and run the following to have your secret variable at .travis.yml
 
 ```
-travis encrypt GH_TOKEN=$T --add
+travis encrypt -r $username/$repository GH_TOKEN=$T --add
 ```
