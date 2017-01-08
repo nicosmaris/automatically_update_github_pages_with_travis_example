@@ -26,8 +26,8 @@ after_success:
 #- curl -L https://github.com/yihui/ubuntu-bin/releases/download/latest/pandoc.tar.gz | tar zx
 #- pandoc -o _site/index.html README.md
 #- cp -r img _site
-- cp app _site
-- cp index.html _site
+- cp -R app _site/
+- cp index.html _site/
 - bash deploy.sh
 
 env:
