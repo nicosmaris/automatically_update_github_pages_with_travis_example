@@ -1,8 +1,14 @@
 <html>
   <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
+    <script src="app/helloworld.js"></script>
   </head>
 
-  <body>
-   <p>hi</p>
+  <body ng-app="helloworld">
+    <a ui-sref="hello" ui-sref-active="active">Hello</a>
+    <a ui-sref="about" ui-sref-active="active">About</a>
+
+    <ui-view></ui-view>
   </body>
 </html>
