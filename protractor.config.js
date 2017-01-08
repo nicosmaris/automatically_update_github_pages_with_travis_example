@@ -1,7 +1,7 @@
 'use strict';
 
 var specs = [
-  'test/**/*.e2e.js'
+  'spec/**/*.e2e.js'
 ];
 
 var istanbulPlugin = require('protractor-istanbul-plugin');
