@@ -10,6 +10,9 @@ var config = {
   framework: 'jasmine2',
   specs: specs,
   seleniumAddress: 'http://localhost:4444/wd/hub',
+  capabilities: {
+    'browserName': 'firefox' // or 'safari'
+  },
   plugins: [{ inline: istanbulPlugin }]
 };
 
