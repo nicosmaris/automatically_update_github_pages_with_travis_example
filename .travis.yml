@@ -22,10 +22,12 @@ after_success:
 - ./node_modules/.bin/istanbul cover jasmine-node --captureExceptions spec/
 - ./node_modules/.bin/codecov
 - mkdir -p _site
-- curl -sSf https://static.rust-lang.org/rustup.sh | sh
-- curl -L https://github.com/yihui/ubuntu-bin/releases/download/latest/pandoc.tar.gz | tar zx
-- pandoc -o _site/index.html README.md
-- cp -r img _site
+#- curl -sSf https://static.rust-lang.org/rustup.sh | sh
+#- curl -L https://github.com/yihui/ubuntu-bin/releases/download/latest/pandoc.tar.gz | tar zx
+#- pandoc -o _site/index.html README.md
+#- cp -r img _site
+- cp app _site
+- cp index.html _site
 - bash deploy.sh
 
 env:
