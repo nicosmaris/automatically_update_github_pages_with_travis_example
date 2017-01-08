@@ -5,8 +5,8 @@ describe("homepage", function() {
         browser.get('/');
     });
 
-    it('should display h3 with text hello world! when clicking on hello link', function() {
-        expect(browser.getCurrentUrl()).toMatch(\/#!/$);
+    it('should redirect to hello when clicking on hello link', function() {
+        expect(browser.getCurrentUrl()).toMatch('/');
         var hello_link = $('[href*=hello]');  
         var about_link = $('[href*=about]');  
         hello_link.click();
