@@ -19,7 +19,7 @@ script:
 
 after_success:
 - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master"
-- npm run cover
+#- npm run cover
 - ./node_modules/.bin/codecov
 - mkdir -p _site
 #- curl -sSf https://static.rust-lang.org/rustup.sh | sh

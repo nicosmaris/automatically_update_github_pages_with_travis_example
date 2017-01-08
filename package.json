@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "lite-server",
-    "test": "./node_modules/.bin/protractor protractor.config.js",
+    "test": "./node_modules/.bin/istanbul test ./node_modules/.bin/protractor protractor.config.js",
     "cover": "node ./node_modules/istanbul/lib/cli.js cover node_modules/jasmine/bin/jasmine.js"
   },
   "devDependencies": {
