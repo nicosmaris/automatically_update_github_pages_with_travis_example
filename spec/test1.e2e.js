@@ -6,10 +6,11 @@ describe("homepage", function() {
     });
 
     it('should display h3 with text hello world! when clicking on hello link', function() {
+        expect(browser.getCurrentUrl()).toMatch(\/#!/$);
         var hello_link = $('[href*=hello]');  
         var about_link = $('[href*=about]');  
         hello_link.click();
-        expect(browser.getCurrentUrl()).toMatch(/\/#!/);
+        expect(browser.getCurrentUrl()).toMatch(/\/#!/hello/);
     });
 });
 
