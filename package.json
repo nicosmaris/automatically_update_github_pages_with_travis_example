@@ -12,6 +12,7 @@
     "phantomjs-polyfill": "0.0.1",
     "phantomjs-prebuilt": "^2.1.4",
     "istanbul": "*",
+    "protractor": "*",
     "protractor-istanbul-plugin": "*",
     "codecov": "*"
   }
