@@ -33,10 +33,6 @@ after_success:
 - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
 - bash deploy.sh
 
-env:
-  global:
-    secure: P0TDENqxPWhWtyNa/pJxjUELE5fWN/1+mUp7Rli/OaRVvM3mM7kAK7ssgRl7ymXFNMaUMdZisMnI1GLmK33YWV0KDkqzEopxiKtLyPGwaBNxq+GumIP86EQz8R4ZcrzYTXjZH8VjxxfZynEYsva0lp98/Z/53QiOokGPSgVFPmCSzv3ot8GtzJZsFuCMQ44xerH5WuuSNuqfMKHCQT401xqJRnKM7a623WYAV43vDyT2wrvOysWWi7uBRYC+yUc3VonzMchk63jKCQoAdbt5yo3ELEi75uuJyLVoxuT3ejxCxNybbpjVtBXp/9tdSzygF6fk0vowsWczWpEu9065a+G3rTplc2uRqwWzuLMa5hgIAG3QNPdwHDnhZvYLTzLzF0VXUCIncmumOgSf/xtXfaJBUwSLZMEKEqqvx6KvhId5bu9VQJ+3aJb+fzdzwWh+dhG8G5Dd30D2fnoIdA9D+TLtOJrzsWFUZuCzp2bZuyZa5BT9BAGJwADTQdPlYJVeBRPacWKRKaEVzV7jjDhapI69xoxUNzNgVn9ksH7RGAVAjfyEyuN4SUMlwQitXk5+8jxzCrP76c3rRN1P3uuBp74+zXYN9YMvKvLYCzMRvrqoHC9EvO8ZBI31yHNOQ5j71cDjDktwdIlKYzKwWBRYnFl3neg/DB8GOXbIQW7zITQ=
-
 cache:
   directories:
   - node_modules 

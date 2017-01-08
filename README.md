@@ -3,7 +3,7 @@
 
 # Minimal angular 1 repository
 
-This is a repository to start frontend development with angular 1. Travis runs end-to-end tests with protractor, coverage with istanbul and jasmine and github serves the page [here](https://nicosmaris.github.io/js)
+This is a repository to start frontend development with angular 1. Travis runs end-to-end tests with jasmine and github serves the page [here](https://nicosmaris.github.io/js)
 
 Nodejs is used only to run protractor as the only backend is lite-server npm package used to serve static files (HTML, CSS, JS).
 
@@ -11,10 +11,10 @@ Nodejs is used only to run protractor as the only backend is lite-server npm pac
 
 Responsibility     | Paths to files/folders    | Comments
 ---                | ---                       | ---
-provisioner        | .travis.yml package.json  | travis starts headless selenium standalone
+provisioner        | .travis.yml package.json  | travis starts headless selenium standalone with xvfb and webdriver-manager
 static server      | bs-config.json index.html | lite-server
-test runner        | protractor.config.js      | starts firefox
-tests              | test/                     | end to end tests with jasmine2 and protractor
+test runner        | protractor.config.js      | starts firefox and collects coverage with istanbul
+tests              | test/                     | end to end tests with jasmine2
 update github page | deploy.sh                 | travis uses github token to push to gh-pages branch
 
 
