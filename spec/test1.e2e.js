@@ -10,7 +10,7 @@ describe("homepage", function() {
         var hello_link = $('[href*=hello]');  
         var about_link = $('[href*=about]');  
         hello_link.click();
-        expect(browser.getCurrentUrl()).toMatch(/\/#!/hello/);
+        expect(browser.getCurrentUrl()).toMatch('/#!/hello$');
     });
 });
 
