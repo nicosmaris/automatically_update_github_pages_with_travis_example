@@ -1,6 +1,6 @@
 'use strict';
 
-describe('helloworld', function () {
+describe('hello-world', function () {
 
     beforeEach(module('helloworld'));
     it('should expect something too', function() {

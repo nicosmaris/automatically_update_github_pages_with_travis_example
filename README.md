@@ -3,7 +3,7 @@
 
 # Minimal angular 1 repository
 
-This is a repository to start frontend development with angular 1. The goal is to fork it and adapt it to your needs so the .travis.yml file uses bash commands without any build tool like grunt, gulp, broccoli and without any of their plugins.
+This is a repository to start frontend development with angular 1. The goal is to fork it and adapt the 'scripts' section of package.json to your needs so the .travis.yml file uses bash commands without any build tool like grunt, gulp, broccoli and without any of their plugins.
 
 # Description of branches
 
