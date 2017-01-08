@@ -3,8 +3,7 @@
 
 # Minimal angular 1 repository
 
-This is a repository to start frontend development with angular 1.
-
+This is a repository to start frontend development with angular 1. The goal is to fork it and adapt it to your needs so the .travis.yml file uses bash commands without any build tool like grunt, gulp, broccoli and without any of their plugins.
 
 # Description of branches
 
@@ -33,3 +32,7 @@ Generate a token T at github, install travis ruby gem and run the following to h
 ```
 travis encrypt -r $username/$repository GH_TOKEN=$T --add
 ```
+
+# Issues and pull requests
+
+Submitting issues and pull requests is more than welcome.
