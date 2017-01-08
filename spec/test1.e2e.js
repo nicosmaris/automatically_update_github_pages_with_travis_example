@@ -5,16 +5,13 @@ describe("homepage", function() {
         browser.get('/');
     });
 
-    it('should expect something', function() {
-        //var el = document.querySelector("body");
-        //var injector = angular.element(el).injector();
-        //var currentStateName = injector.get('$state');
-        //expect(currentStateName).toEqual("hello");
-
+    it('should display h3 with text hello world! when clicking on hello link', function() {
         var hello_link = $('[href*=hello]');  
         var about_link = $('[href*=about]');  
         hello_link.click();
-        //expect(answer.getText()).toEqual("Chocolate!");
+        var h3 = $("h3[@class='ng-scope']");
+        var text = h3.getText()
+        expect(text).toEqual("hello world!");
     });
 });
 
