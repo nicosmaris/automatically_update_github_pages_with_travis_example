@@ -10,7 +10,7 @@
   "devDependencies": {
     "lite-server": "*",
     "webdriver-manager": "*",
-    "jasmine-core": "^2.3.4",
+    "jasmine-core": "*",
     "jasmine-node": "*",
     "jasmine-spec-reporter": "^2.4.0",
     "phantomjs-polyfill": "0.0.1",
