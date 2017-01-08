@@ -13,7 +13,7 @@ var config = {
   capabilities: {
     'browserName': 'firefox' // or 'safari'
   },
-  baseUrl: 'http://localhost:4444/wd/hub',
+  baseUrl: 'http://localhost:9003/',
   plugins: [{ inline: istanbulPlugin }]
 };
 
