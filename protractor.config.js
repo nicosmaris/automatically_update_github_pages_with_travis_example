@@ -13,7 +13,7 @@ var config = {
   capabilities: {
     'browserName': 'firefox' // or 'safari'
   },
-  baseUrl: 'http://localhost:9003/',
+  baseUrl: 'http://localhost:8000/',
   plugins: [{ inline: istanbulPlugin }]
 };
 
