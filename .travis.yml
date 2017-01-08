@@ -3,6 +3,8 @@ node_js:
 - '4'
 
 script:
+- webdriver-manager update
+- webdriver-manager start
 - npm test
 
 after_success:

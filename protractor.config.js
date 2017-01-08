@@ -9,6 +9,7 @@ var istanbulPlugin = require('protractor-istanbul-plugin');
 var config = {
   framework: 'jasmine2',
   specs: specs,
+  seleniumAddress: 'http://localhost:4444/wd/hub',
   plugins: [{ inline: istanbulPlugin }]
 };
 
