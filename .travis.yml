@@ -11,7 +11,7 @@ before_script:
 - nohup bash -c "./node_modules/.bin/webdriver-manager --standalone start 2>&1 &"
 - sleep 5
 - cat nohup.out
-- npm instrument
+- npm run instrument
 - nohup bash -c "npm run dev 2>&1 &"
 - sleep 5
 - cat nohup.out
