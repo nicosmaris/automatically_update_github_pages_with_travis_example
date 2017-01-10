@@ -4,6 +4,7 @@
   "description": "Angular 1 template with protractor tests, coverage and github page",
   "main": "index.js",
   "scripts": {
+    "instrument": "./node_modules/.bin/istanbul instrument . --output ../instrumented --preserve-comments",
     "dev": "lite-server",
     "test": "./node_modules/.bin/istanbul test  --include-all-sources ./node_modules/.bin/protractor protractor.config.js"
   },
