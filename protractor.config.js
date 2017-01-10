@@ -4,8 +4,6 @@ var specs = [
   'spec/**/*.e2e.js'
 ];
 
-var istanbulPlugin = require('protractor-istanbul-plugin');
-
 var config = {
   framework: 'jasmine2',
   specs: specs,
@@ -14,7 +12,11 @@ var config = {
     'browserName': 'firefox' // or 'safari'
   },
   baseUrl: 'http://localhost:8000/',
-  plugins: [{ inline: istanbulPlugin }]
+  plugins: [{
+    path: 'node_modules/protractor-istanbul-plugin',
+    logAssertions: true,
+    failAssertions: true
+  }]
 };
 
 module.exports.config = exports.config = config;
