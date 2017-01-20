@@ -6,8 +6,8 @@
   "scripts": {
     "instrument": "./node_modules/.bin/istanbul instrument app --output ../instrumented/app --preserve-comments",
     "dev": "lite-server",
-    "test": "./node_modules/.bin/protractor protractor.config.js",
-    "unit": "unit.js"
+    //"e2e": "./node_modules/.bin/protractor protractor.config.js",
+    "test": "node unit.js"
   },
   "dependencies": {
     "jquery": "*"

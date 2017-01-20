@@ -2,10 +2,8 @@ language: node_js
 # travis runs 'npm install' and 'npm test'
 node_js:
 - '6'
-# webdriver-manager is not compatible with node_js 4
 
-before_script:
-- npm run unit
+after_success:
 - "./node_modules/.bin/webdriver-manager update --standalone"
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
@@ -20,7 +18,6 @@ before_script:
 - sleep 5
 - cat nohup.out
 
-after_success:
 - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master"
 - npm test --coverage
 - "./node_modules/.bin/codecov"
