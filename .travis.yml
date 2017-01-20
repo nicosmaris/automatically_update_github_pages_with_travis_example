@@ -5,6 +5,7 @@ node_js:
 # webdriver-manager is not compatible with node_js 4
 
 before_script:
+- npm run unit
 - "./node_modules/.bin/webdriver-manager update --standalone"
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
