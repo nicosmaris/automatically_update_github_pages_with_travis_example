@@ -1,3 +1,5 @@
+import test from 'ava';
+
 var jsdom = require("jsdom");
 
 jsdom.env({
@@ -7,4 +9,9 @@ jsdom.env({
     var $ = window.$;
     console.log($("a.story-title-link.story-link").text());
   }
+});
+
+
+test('can add numbers', t => {
+	    t.is(1 + 1, 2);
 });
