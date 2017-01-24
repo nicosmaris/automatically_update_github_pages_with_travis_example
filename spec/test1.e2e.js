@@ -3,6 +3,8 @@
 describe("homepage", function() {
     beforeEach(function() {
         browser.get('/', 10000);
+        var ptor = protractor.getInstance();
+        ptor.waitForAngular();
     });
 
     it('should have a link', function () {
