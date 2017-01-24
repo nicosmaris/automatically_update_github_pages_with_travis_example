@@ -2,6 +2,7 @@
 
 describe("homepage", function() {
     beforeEach(function() {
+        browser.ignoreSynchronization = true;
         browser.get('/');
     });
 
