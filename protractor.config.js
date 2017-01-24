@@ -11,12 +11,7 @@ var config = {
   capabilities: {
     'browserName': 'firefox' // or 'safari'
   },
-  baseUrl: 'http://localhost:8000/',
-  plugins: [{
-    path: 'node_modules/protractor-istanbul-plugin',
-    logAssertions: true,
-    failAssertions: true
-  }]
+  baseUrl: 'http://localhost:8000/'
 };
 
 module.exports.config = exports.config = config;
