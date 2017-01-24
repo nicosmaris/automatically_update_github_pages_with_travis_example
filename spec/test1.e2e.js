@@ -9,7 +9,7 @@ describe("homepage", function() {
         var about_link = element(by.css('[ui-sref="about"]'));
         browser.wait(function() {
                 return about_link.isPresent();
-            }, timeToWaitInMilliseconds, 'no link with ui-sref about');
+            }, 10000, 'no link with ui-sref about');
         expect(about_link.isPresent()).toBe(true);  
     });
 
