@@ -2,8 +2,7 @@
 
 describe("homepage", function() {
     beforeEach(function() {
-        browser.ignoreSynchronization = true;
-        browser.get('/');
+        browser.get('index.html#/');
     });
 
     it('should redirect to hello when clicking on hello link', function() {
