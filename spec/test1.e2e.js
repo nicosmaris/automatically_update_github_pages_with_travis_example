@@ -2,7 +2,7 @@
 
 describe("homepage", function() {
     beforeEach(function() {
-        browser.get('/index.html#/', 10000);
+        browser.get('/', 10000);
     });
 
     it('should redirect to hello when clicking on hello link', function() {
