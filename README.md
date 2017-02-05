@@ -5,12 +5,14 @@
 
 This is a repository to start frontend development with jquery. The goal is to fork it and adapt the 'scripts' section of package.json to your needs so the .travis.yml file uses bash commands without any build tool like grunt, gulp, broccoli and without any of their plugins.
 
+Currently we copy js code from the files used in the browser to the tests to avoid messing with commonJS and AMD or ES6.
+
 # Description of branches
 
 Responsibility     | Branch    | Comments
 ---                | ---       | ---
 live               | gh-pages  | github serves this single page app [here](https://nicosmaris.github.io/js)
-test               | master    | travis uses ava to run jasmine tests in parallel. The tests runs on jsdom and not on a browser.
+test               | master    | travis uses ava to run tests on jsdom in parallel
 
 
 # Description of files
