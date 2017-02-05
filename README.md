@@ -7,6 +7,8 @@ This is a repository to start frontend development with jquery. The goal is to f
 
 Currently we copy js code from the files used in the browser to the tests to avoid messing with commonJS and AMD or ES6.
 
+Note that github pages take a few minutes to get the pushed changes.
+
 # Description of branches
 
 Responsibility     | Branch    | Comments
