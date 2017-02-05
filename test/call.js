@@ -24,7 +24,7 @@ function stubs(){
   sinon.stub($, "ajax").yieldsTo("success", "hello world"); // so we don't depend on tadhack.restcomm.com which also has no CORS
 }
 /**************************************************************/
-/* loads Unit Under Test */
+/* loads the modules loaded at index.html apart from main. Then it tests those modules. */
 var call = require("../app/call.js").f;
 
 /* isolated tests that run in parallel */
@@ -39,9 +39,6 @@ test('the test msisdn calls itself and response of restcomm connect appears at #
   call(window, $, sid, token, dest, dest);
 
   var text = $('#msgid').html();
-  console.log('start of content of #msgid');
-  console.log(text);
-  console.log('end of content of #msgid');
 
   t.is(text, 'hello world', text);
 });

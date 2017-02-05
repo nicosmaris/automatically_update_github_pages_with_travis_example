@@ -4,7 +4,6 @@ exports.f = function(window, jquery, sid, token, src, dest){
   var endpoint = '/restcomm/2012-04-24/Accounts/' + sid + '/Calls.json'
   var url = host + endpoint
   var basic = "Basic " + window.btoa(sid + ':' + token);
-  console.log(basic);
   var body = {
     'To': dest,
     'From': src
