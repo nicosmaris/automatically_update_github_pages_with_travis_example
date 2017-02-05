@@ -1,2 +1,7 @@
 _site
 node_modules
+msisdn_dest
+msisdn_src
+sid
+token
+secret.zip
