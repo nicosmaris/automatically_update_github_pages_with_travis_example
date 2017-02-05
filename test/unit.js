@@ -25,8 +25,9 @@ function unit_under_test(){
 /* jasmine tests */
 test('can add numbers', t => {
   unit_under_test()
-  console.log($('#msgid').html());
-  t.is(1 + 1, 2);
+  text = $('#msgid').html();
+  console.log(text);
+  text.is('hello world');
 });
 
 
