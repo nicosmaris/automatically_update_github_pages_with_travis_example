@@ -1,24 +1,18 @@
 {
-  "name": "angular1-template",
+  "name": "jquerydom",
   "version": "0.1.0",
-  "description": "Angular 1 template with protractor tests, coverage and github page",
+  "description": "jquery template with jsdom and github page refreshed with travis",
   "main": "index.js",
   "scripts": {
-    "instrument": "./node_modules/.bin/istanbul instrument app --output ../instrumented/app --preserve-comments",
     "dev": "lite-server",
-    "test": "./node_modules/.bin/protractor protractor.config.js"
+    "test": "ava --verbose"
+  },
+  "dependencies": {
+    "jquery": "*"
   },
   "devDependencies": {
-    "lite-server": "*",
-    "webdriver-manager": "*",
-    "jasmine-core": "*",
-    "jasmine-node": "*",
-    "jasmine-spec-reporter": "^2.4.0",
-    "phantomjs-polyfill": "0.0.1",
-    "phantomjs-prebuilt": "^2.1.4",
-    "istanbul": "*",
-    "protractor": "*",
-    "protractor-istanbul-plugin": "*",
-    "codecov": "*"
+    "jsdom" : "*", 
+    "ava": "*",
+    "lite-server": "*"
   }
 }
