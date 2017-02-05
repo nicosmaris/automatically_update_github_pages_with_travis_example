@@ -75,14 +75,17 @@ test('makes a call with Restcomm Connect API and a failing response leads to the
 
 test('modifies a ringing call and the response has CallStatus cancelled', t => {
   var sid = 'AC1'
-  var cancelled = require("../app/call.js").cancelled
+  var success = require("../app/call.js").success
   var fakes = sinon.collection;
-  cancelled(fakes, $);
+  var spy = success(fakes, $);
   call(window, $, sid, '', '', '', 'aCallSid', 'cancelled');
 
   var response = $('#msgid').data();
-  t.true(response.hasOwnProperty('CallStatus'), response);
-  t.is(response['CallStatus'], 'cancelled', response['CallStatus']);
+  sinon.assert.calledWith(spy, sinon.match(function (value) {
+    // TODO 
+    return !!value;
+  });
+  spy.calledWith('json');
   fakes.restore();
 });
 

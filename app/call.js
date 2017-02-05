@@ -45,7 +45,9 @@ exports.success = function(sinon, jquery){
     'To':'%2B306901234567',
     'CallStatus':'in-progress'
   }
-  sinon.stub(jquery, "ajax").yieldsTo("success", response);
+  var spy = sinon.stub(jquery, "ajax");
+  spy.yieldsTo("success", response);
+  return spy;
 }
 
 exports.cancelled = function(sinon, jquery){
@@ -55,7 +57,9 @@ exports.cancelled = function(sinon, jquery){
     'To':'%2B306901234567',
     'CallStatus':'cancelled'
   }
-  sinon.stub(jquery, "ajax").yieldsTo("success", response);
+  var spy = sinon.stub(jquery, "ajax");
+  spy.yieldsTo("success", response);
+  return spy;
 }
 
 exports.error = function(sinon, jquery){
@@ -65,6 +69,8 @@ exports.error = function(sinon, jquery){
     'To':'%2B306901234567',
     'CallStatus':'in-progress'
   }
-  sinon.stub(jquery, "ajax").yieldsTo("error", response);
+  var spy = sinon.stub(jquery, "ajax");
+  spy.yieldsTo("error", response);
+  return spy;
 }
 
