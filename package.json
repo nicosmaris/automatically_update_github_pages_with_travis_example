@@ -13,9 +13,6 @@
   "devDependencies": {
     "jsdom" : "*", 
     "ava": "*",
-    "lite-server": "*",
-    "jasmine-core": "*",
-    "jasmine-node": "*",
-    "jasmine-spec-reporter": "*"
+    "lite-server": "*"
   }
 }
