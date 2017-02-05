@@ -27,7 +27,7 @@ test('can add numbers', t => {
   unit_under_test()
   var text = $('#msgid').html();
   console.log(text);
-  text.is('hello world');
+  t.is(text, 'hello world');
 });
 
 
