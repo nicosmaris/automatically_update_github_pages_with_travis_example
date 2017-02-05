@@ -4,6 +4,7 @@ import test from 'ava';
 var sinon = require("sinon");
 var fs = require("fs");
 var jsdom = require("jsdom");
+var assert = require('assert');
 
 /* loads HTML of page under test */
 var htmlfile = fs.readFileSync("index.html")
@@ -19,27 +20,101 @@ window.onModulesLoaded = function () {
 };
 var $ = require('jquery')(window);
 
-/* mocking */
-function stubs(){
-  sinon.stub($, "ajax").yieldsTo("success", "hello world"); // so we don't depend on tadhack.restcomm.com which also has no CORS
-}
 /**************************************************************/
-/* loads the modules loaded at index.html apart from main. Then it tests those modules. */
-var call = require("../app/call.js").f;
-
-/* isolated tests that run in parallel */
-/* To use 'npm run debug', comment the following line and keep the body of the function that does not use 't' */
-test('the test msisdn calls itself and response of restcomm connect appears at #msgid', t => {
-  var sid = ''   // fs.readFileSync("sid")
-  var token = '' // fs.readFileSync("token")
-  var dest = ''  // fs.readFileSync("msisdn_dest")
-
-  stubs();
+var call = require("../app/call.js").call;
  
-  call(window, $, sid, token, dest, dest);
+/* To use 'npm run debug', comment the following line and keep the body of the function that does not use 't' */
+test('makes a call with Restcomm Connect API call and the response has the account SID', t => {
+  var sid = 'AC1'
+  var success = require("../app/call.js").success
+  var fakes = sinon.collection;
+  success(fakes, $);
+  call(window, $, sid, '', '', '');
+
+  var response = $('#msgid').data();
+  t.true(response.hasOwnProperty('AccountSid'), response);
+  t.is(response['AccountSid'], sid, response['AccountSid']);
+  fakes.restore();
+});
+
+test('makes a call with Restcomm Connect API call and the response has a CallSid', t => {
+  var sid = 'AC1'
+  var success = require("../app/call.js").success
+  var fakes = sinon.collection;
+  success(fakes, $);
+  call(window, $, sid, '', '', '');
+
+  var response = $('#msgid').data();
+  t.true(response.hasOwnProperty('CallSid'), response);
+  fakes.restore();
+});
+
+test('makes a call with Restcomm Connect API call and the response has a CallStatus', t => {
+  var sid = 'AC1'
+  var success = require("../app/call.js").success
+  var fakes = sinon.collection;
+  success(fakes, $);
+  call(window, $, sid, '', '', '');
+
+  var response = $('#msgid').data();
+  t.true(response.hasOwnProperty('CallStatus'), response);
+  fakes.restore();
+});
+
+test('makes a call with Restcomm Connect API and a failing response leads to the displayed text "call failed"', t => {
+  var sid = 'AC1'
+  var error = require("../app/call.js").error
+  var fakes = sinon.collection;
+  error(fakes, $);
+  call(window, $, sid, '', '', '');
 
   var text = $('#msgid').html();
-
-  t.is(text, 'hello world', text);
+  t.is(text, 'call failed', text);
+  fakes.restore();
 });
+
+test('modifies a ringing call and the response has CallStatus cancelled', t => {
+  var sid = 'AC1'
+  var cancelled = require("../app/call.js").cancelled
+  var fakes = sinon.collection;
+  cancelled(fakes, $);
+  call(window, $, sid, '', '', '', 'aCallSid', 'cancelled');
+
+  var response = $('#msgid').data();
+  t.true(response.hasOwnProperty('CallStatus'), response);
+  t.is(response['CallStatus'], 'cancelled', response['CallStatus']);
+  fakes.restore();
+});
+
+test('modifies an accepted call by playing the audio file hello and the response has the expected CallStatus', t => {
+  var sid = 'AC1'
+  var success = require("../app/call.js").success
+  var fakes = sinon.collection;
+  success(fakes, $);
+  var callSid = 'aCallSid';
+  call(window, $, sid, '', '', '', callSid, 'not given', 'http://127.0.0.1:8080/restcomm/rcml?callSid=' + callSid + '&method=play&file=hello');
+
+  var response = $('#msgid').data();
+  t.true(response.hasOwnProperty('CallStatus'), response);
+  fakes.restore();
+});
+
+// TODO: when user clicks at Say, the ajax call has url with regex /say
+test('modifies an accepted call by saying hello hello and the response has the expected CallStatus', t => {
+  var sid = 'AC1'
+  var success = require("../app/call.js").success
+  var fakes = sinon.collection;
+  success(fakes, $);
+  var callSid = 'aCallSid';
+  call(window, $, sid, '', '', '', callSid, 'not given', 'http://127.0.0.1:8080/restcomm/rcml/say?callSid=' + callSid + '&text=hello+hello');
+
+  var response = $('#msgid').data();
+  t.true(response.hasOwnProperty('CallStatus'), response);
+  fakes.restore();
+});
+
+test('the generated RCML of rcml/play?callSid=x&method=play&file=hello has the format <Response><Play>http://foobar.com/demo.wav</Play></Response>', t => {
+  var msg = "This should be tested on the backend";
+});
+
 
