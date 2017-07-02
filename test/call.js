@@ -10,12 +10,12 @@ var assert = require('assert');
 var htmlfile = fs.readFileSync("index.html")
 
 /* does not load js handler of jquery ready event. jsdom.env is even more limited */
-var virtual_document = new jsdom.JSDOM(htmlfile, {
+var document = new jsdom.JSDOM(htmlfile, {
   /* console errors on a browser like 'XMLHttpRequest cannot load' will be ignored */
   virtualConsole: (new jsdom.VirtualConsole()).sendTo(console)
 });
-var virtual_window = virtual_document.defaultView;
-//virtual_window.onModulesLoaded = function () {
+var window = document.defaultView;
+//window.onModulesLoaded = function () {
 //  console.log("ready to roll!");
 //};
 var $ = require('jquery')(window);
@@ -29,7 +29,7 @@ test('makes a call with Restcomm Connect API call and the response has the accou
   var success = require("../app/call.js").success
   var fakes = sinon.collection;
   success(fakes, $);
-  call(virtual_window, $, sid, '', '', '');
+  call(window, $, sid, '', '', '');
 
   var response = $('#msgid').data();
   t.true(response.hasOwnProperty('AccountSid'), response);
@@ -42,7 +42,7 @@ test('makes a call with Restcomm Connect API call and the response has a CallSid
   var success = require("../app/call.js").success
   var fakes = sinon.collection;
   success(fakes, $);
-  call(virtual_window, $, sid, '', '', '');
+  call(window, $, sid, '', '', '');
 
   var response = $('#msgid').data();
   t.true(response.hasOwnProperty('CallSid'), response);
@@ -54,7 +54,7 @@ test('makes a call with Restcomm Connect API call and the response has a CallSta
   var success = require("../app/call.js").success
   var fakes = sinon.collection;
   success(fakes, $);
-  call(virtual_window, $, sid, '', '', '');
+  call(window, $, sid, '', '', '');
 
   var response = $('#msgid').data();
   t.true(response.hasOwnProperty('CallStatus'), response);
@@ -66,7 +66,7 @@ test('makes a call with Restcomm Connect API and a failing response leads to the
   var error = require("../app/call.js").error
   var fakes = sinon.collection;
   error(fakes, $);
-  call(virtual_window, $, sid, '', '', '');
+  call(window, $, sid, '', '', '');
 
   var text = $('#msgid').html();
   t.is(text, 'call failed', text);
@@ -78,7 +78,7 @@ test('modifies a ringing call and the response has CallStatus cancelled', t => {
   var success = require("../app/call.js").success
   var fakes = sinon.collection;
   var spy = success(fakes, $);
-  call(virtual_window, $, sid, '', '', '', 'aCallSid', 'cancelled');
+  call(window, $, sid, '', '', '', 'aCallSid', 'cancelled');
 
   var response = $('#msgid').data();
   sinon.assert.calledWith(spy, sinon.match(function (value) {
@@ -95,7 +95,7 @@ test('modifies an accepted call by playing the audio file hello and the response
   var fakes = sinon.collection;
   success(fakes, $);
   var callSid = 'aCallSid';
-  call(virtual_window, $, sid, '', '', '', callSid, 'not given', 'http://127.0.0.1:8080/restcomm/rcml?callSid=' + callSid + '&method=play&file=hello');
+  call(window, $, sid, '', '', '', callSid, 'not given', 'http://127.0.0.1:8080/restcomm/rcml?callSid=' + callSid + '&method=play&file=hello');
 
   var response = $('#msgid').data();
   t.true(response.hasOwnProperty('CallStatus'), response);
@@ -109,7 +109,7 @@ test('modifies an accepted call by saying hello hello and the response has the e
   var fakes = sinon.collection;
   success(fakes, $);
   var callSid = 'aCallSid';
-  call(virtual_window, $, sid, '', '', '', callSid, 'not given', 'http://127.0.0.1:8080/restcomm/rcml/say?callSid=' + callSid + '&text=hello+hello');
+  call(window, $, sid, '', '', '', callSid, 'not given', 'http://127.0.0.1:8080/restcomm/rcml/say?callSid=' + callSid + '&text=hello+hello');
 
   var response = $('#msgid').data();
   t.true(response.hasOwnProperty('CallStatus'), response);

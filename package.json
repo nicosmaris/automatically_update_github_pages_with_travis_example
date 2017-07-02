@@ -12,7 +12,7 @@
     "jquery": "*"
   },
   "devDependencies": {
-    "jsdom" : "*", 
+    "jsdom" : "3.1.2", 
     "ava": "*",
     "sinon": "*",
     "node-inspector": "*",
