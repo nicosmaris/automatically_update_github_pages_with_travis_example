@@ -15,9 +15,9 @@ var document = new jsdom.JSDOM(htmlfile, {
   virtualConsole: (new jsdom.VirtualConsole()).sendTo(console)
 });
 var window = document.defaultView;
-window.onModulesLoaded = function () {
-  console.log("ready to roll!");
-};
+//window.onModulesLoaded = function () {
+//  console.log("ready to roll!");
+//};
 var $ = require('jquery')(window);
 
 /**************************************************************/
