@@ -12,7 +12,7 @@ var htmlfile = fs.readFileSync("index.html")
 /* does not load js handler of jquery ready event. jsdom.env is even more limited */
 var document = jsdom.jsdom(htmlfile, {
   /* console errors on a browser like 'XMLHttpRequest cannot load' will be ignored */
-  virtualConsole: jsdom.VirtualConsole().sendTo(console)
+  virtualConsole: (new jsdom.VirtualConsole()).sendTo(console)
 });
 var window = document.defaultView;
 window.onModulesLoaded = function () {
