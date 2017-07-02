@@ -18,7 +18,7 @@ var virtual_window = virtual_document.defaultView;
 //virtual_window.onModulesLoaded = function () {
 //  console.log("ready to roll!");
 //};
-var $ = require('jquery')(virtual_window);
+var $ = require('jquery')(window);
 
 /**************************************************************/
 var call = require("../app/call.js").call;
