@@ -1,12 +1,12 @@
 {
   "name": "jquerydom",
   "version": "0.1.0",
-  "description": "jquery template with jsdom and github page refreshed with travis",
+  "description": "github page refreshed with travis",
   "main": "index.js",
   "scripts": {
     "dev": "lite-server",
     "debug": "./node_modules/.bin/node-debug test/unit.js",
-    "test": "ava --verbose"
+    "test-without-browser": "ava --verbose"
   },
   "dependencies": {
     "jquery": "*"
