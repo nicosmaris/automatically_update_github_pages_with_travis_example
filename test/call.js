@@ -84,7 +84,7 @@ test('modifies a ringing call and the response has CallStatus cancelled', t => {
   sinon.assert.calledWith(spy, sinon.match(function (value) {
     // TODO 
     return !!value;
-  });
+  }));
   spy.calledWith('json');
   fakes.restore();
 });
