@@ -10,7 +10,7 @@ var assert = require('assert');
 var htmlfile = fs.readFileSync("index.html")
 
 /* does not load js handler of jquery ready event. jsdom.env is even more limited */
-var document = jsdom.jsdom(htmlfile, {
+var document = new jsdom.JSDOM(htmlfile, {
   /* console errors on a browser like 'XMLHttpRequest cannot load' will be ignored */
   virtualConsole: (new jsdom.VirtualConsole()).sendTo(console)
 });
